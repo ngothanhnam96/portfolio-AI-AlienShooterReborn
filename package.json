@@ -1,0 +1,15 @@
+{
+  "name": "hive-breach",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hive Breach - an original top-down twin-stick alien shooter for the browser.",
+  "type": "module",
+  "license": "CC0-1.0",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

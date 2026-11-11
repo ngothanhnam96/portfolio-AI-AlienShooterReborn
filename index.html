@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0b0f14">
+  <meta name="description" content="Hive Breach — Phá Tổ Ngoại Tinh: game bắn súng góc nhìn từ trên xuống. Quét sạch trạm nghiên cứu bị ngoại tinh chiếm đóng.">
+  <title>Hive Breach</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hud" id="hud">
+    <div class="hud-block hp" title="Máu">
+      <span class="hud-icon" aria-hidden="true">✚</span>
+      <div class="bar"><i id="hp-fill"></i></div>
+      <b id="hp-text">100</b>
+    </div>
+    <div class="hud-block weapon" title="Vũ khí (1–6, Q/E, con lăn)">
+      <span class="weapon-dot" id="weapon-dot"></span>
+      <span id="weapon-name">Súng lục P-9</span>
+      <b id="weapon-ammo">∞</b>
+    </div>
+    <div class="hud-block" title="Lựu đạn (chuột phải / G)"><span aria-hidden="true">💣</span> <b id="grenades">3</b></div>
+    <div class="hud-block" title="Tín dụng"><span aria-hidden="true">¢</span> <b id="credits">0</b></div>
+    <div class="hud-block objective" id="objective"></div>
+    <div class="hud-actions">
+      <button class="hud-btn" id="pause-btn" aria-label="Tạm dừng (P)" title="Tạm dừng (P)">⏸</button>
+      <button class="hud-btn" id="music-btn" aria-label="Nhạc (N)" title="Nhạc (N)">♫</button>
+      <button class="hud-btn" id="sound-btn" aria-label="Âm thanh (M)" title="Âm thanh (M)">🔊</button>
+    </div>
+  </header>
+
+  <main class="stage" id="stage">
+    <canvas id="screen" aria-label="Màn chơi"></canvas>
+    <div class="boss" id="boss" hidden>
+      <span id="boss-name">Nữ Hoàng Tổ</span>
+      <div class="boss-bar"><i id="boss-fill"></i></div>
+    </div>
+    <div class="banner" id="banner" hidden></div>
+
+    <div class="touch" id="touch" aria-hidden="true">
+      <div class="zone" data-zone></div>
+      <div class="stick" data-stick="move" hidden><i></i></div>
+      <div class="stick aim" data-stick="aim" hidden><i></i></div>
+      <div class="touch-buttons">
+        <button data-button="cycle">⇄</button>
+        <button data-button="grenade">💣</button>
+        <button data-button="dash">»</button>
+      </div>
+      <p class="touch-hint">Trái: di chuyển · Phải: ngắm &amp; bắn</p>
+    </div>
+  </main>
+
+  <section class="overlay" id="overlay" hidden>
+    <div class="panel" id="panel" role="dialog" aria-modal="true"></div>
+  </section>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" hidden></div>
+
+  <script type="module" src="src/main.js"></script>
+</body>
+</html>
